@@ -138,7 +138,7 @@ void process_seqs_gz(gzFile& FASTQ_file, const char * output_path, bool fasta, i
 int main(int argc, char *argv[])
 {
 	std::string inFASTQ;
-	const char * outfile;
+	std::string outfile;
 	bool fasta;
     int n;
 
@@ -155,11 +155,11 @@ int main(int argc, char *argv[])
 
 	if(strcmp(ext.c_str(), ".gz") == 0) { 
 		gzFile FASTQ_file = gzopen(inFASTQ.c_str(), "rb");
-		process_seqs_gz(FASTQ_file, outfile, fasta, n);
+		process_seqs_gz(FASTQ_file, outfile.c_str(), fasta, n);
 		gzclose(FASTQ_file);
 	} else if(strcmp(ext.c_str(), ".fastq") == 0) {
 		std::ifstream FASTQ_file(inFASTQ, std::ios::in);
-		process_seqs(FASTQ_file, outfile, fasta, n);
+		process_seqs(FASTQ_file, outfile.c_str(), fasta, n);
 	}
 	return(0);
 }
