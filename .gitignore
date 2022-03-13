@@ -33,3 +33,5 @@
 
 #vscode files
 *.devcontainer
+*.vscode
+*.depend

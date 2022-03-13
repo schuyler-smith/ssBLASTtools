@@ -151,6 +151,16 @@ int main(int argc, char *argv[])
         ("reads,n", po::value<int>(&n)->default_value(0), "Number of reads to write to `outfile`. Default [0] will write all reads.")
     ;
 
+    po::variables_map vm;
+    po::store(parse_command_line(argc, argv, desc), vm);
+    
+
+    if(vm.count("help"))
+    {
+        std::cout << desc << '\n';
+        return 0;
+    }
+    po::notify(vm);
 	std::string ext = inFASTQ.substr(inFASTQ.rfind('.'));
 
 	if(strcmp(ext.c_str(), ".gz") == 0) { 
