@@ -142,6 +142,7 @@ int main(int argc, char *argv[])
 	bool fasta;
     int n;
 
+    // declare options
     po::options_description desc("Arguments");
     desc.add_options()
         ("help,h", "Prints the usage and argument descriptions.\n")
@@ -151,16 +152,28 @@ int main(int argc, char *argv[])
         ("reads,n", po::value<int>(&n)->default_value(0), "Number of reads to write to `outfile`. Default [0] will write all reads.")
     ;
 
+    // parse arguments
     po::variables_map vm;
-    po::store(parse_command_line(argc, argv, desc), vm);
-    
+    po::store(po::parse_command_line(argc, argv, desc), vm);
 
-    if(vm.count("help"))
-    {
-        std::cout << desc << '\n';
+    // check help call
+    if (vm.count("help")) {  
+        std::cout << "\nUsage: dedupe_fastq --in_file <path_to_file.fastq> --out_file <file_to_write.fast(q/a)> --fasta --n <int>.\n" << std::endl;
+        std::cout << desc << "\n";
         return 0;
     }
-    po::notify(vm);
+    // check arguments
+    try {
+        po::notify(vm);
+        if (!vm.count("outfile")) {  
+            outfile = "deduped_"+inFASTQ;
+        }
+    } catch (std::exception& e) {
+        std::cout << "\nError: " << e.what() << std::endl << "\n";
+        std::cout << desc << std::endl;
+        return 1;
+    }
+
 	std::string ext = inFASTQ.substr(inFASTQ.rfind('.'));
 
 	if(strcmp(ext.c_str(), ".gz") == 0) { 
