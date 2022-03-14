@@ -1,5 +1,5 @@
-APP:= fastq_derep
-SRCS:= fastq_derep.cpp
+SRCS:= cmdoptions.cpp
+APP:= myapp
 
 CC:= gcc
 CXX:= g++
