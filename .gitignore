@@ -35,3 +35,5 @@
 *.devcontainer
 *.vscode
 *.depend
+
+*bin

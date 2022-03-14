@@ -7,13 +7,6 @@ namespace po = boost::program_options;
 int main(int argc, char** argv) {
   std::string inFASTQ;
   std::string outfile;
-  bool fasta;
-  int n;
-
-
-
-
-
 
 
   // declare options
@@ -49,9 +42,7 @@ int main(int argc, char** argv) {
   // program logic
   std::cout << "Hello " << vm["in_file"].as<std::string>() << std::endl;
   std::cout << "Hello " << outfile << std::endl;
-  if(fasta){
-      std::cout << "Hello fasta" << std::endl;
-  }
+
 
   return 0;
 }

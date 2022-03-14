@@ -1,6 +1,3 @@
-SRCS:= cmdoptions.cpp
-APP:= myapp
-
 CC:= gcc
 CXX:= g++
 CXXFLAGS:= -std=c++11 -g -Wall
@@ -8,28 +5,13 @@ CPPFLAGS=
 LDLIBS= -lboost_program_options -lz
 LDFLAGS=
 
-OBJS:= $(subst .cc,.o,$(SRCS))
-RM:= rm -f
-PREFIX:= /usr/local
+all: bin/hello bin/fastq_derep
 
-all: $(APP)
+bin:
+	$(shell mkdir -p bin)
 
-$(APP): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(APP) $(OBJS) $(LDLIBS)
+bin/hello: bin
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o bin/hello src/hello.cpp $(LDLIBS)
 
-depend: .depend
-
-.depend: $(SRCS)
-	$(RM) ./.depend
-	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
-
-clean:
-	$(RM) $(OBJS)
-
-distclean: clean
-	$(RM) *~ .depend
-
-include .depend
-
-# install:
-# 	install -m 755 tool $(DESTDIR)$(PREFIX)/bin
+bin/fastq_derep: bin
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o bin/fastq_derep src/fastq_derep.cpp $(LDLIBS)
