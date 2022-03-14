@@ -13,13 +13,11 @@
 int main(int argc, char * argv[])
 {
     int eval = EXIT_SUCCESS;
-    std::string     input_fasta_file;
-
     try{
         if(!askforhelp(argv))
         {
             for(int i=1;i < argc;i++){
-                get_fa_line(argv[i]);
+                get_fa_line(argv[i], false);
             }
         }
     } catch(std::exception const &err) {

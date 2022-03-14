@@ -1,6 +1,10 @@
 #ifndef HELPCALL_SDS
 #define HELPCALL_SDS
 
+#include <iostream>
+#include <cstring>
+#include <string>
+
 bool askforhelp(char * argv[])
 {
     bool usage = (!strcmp(argv[1], "-h") | !strcmp(argv[1], "--help"));
