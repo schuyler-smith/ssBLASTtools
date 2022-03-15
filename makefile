@@ -4,7 +4,8 @@ CXXFLAGS:= -std=c++11 -g -Wall
 CPPFLAGS= 
 LDLIBS= -lboost_program_options -lz
 LDFLAGS= -I ./include
-HDRS:= 
+HDRS:= $(wildcard include/*) 
+SRCS:=
 
 all:	bin bin/fastq_derep \
 		bin/fasta_seq_names \

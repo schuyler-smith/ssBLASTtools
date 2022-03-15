@@ -17,7 +17,7 @@ int main(int argc, char * argv[])
 {
     int eval = EXIT_SUCCESS;
     try{
-        if(!askforhelp(argc, argv, "test this"))
+        if(!askforhelp(argc, argv, "./fasta_seq_names [input.fasta] ..."))
         {
             for(int i=1;i < argc;i++){
                 get_fa_line(argv[i]);

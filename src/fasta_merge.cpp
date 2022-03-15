@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     int eval = EXIT_SUCCESS;
     try{
-        if(!askforhelp(argc, argv, "test this"))
+        if(!askforhelp(argc, argv, "./fasta_merge [input.fasta] ..."))
         {
             for(int i=1;i < argc;i++){
                 std::ifstream 	fasta_file(argv[i]);
