@@ -1,6 +1,9 @@
 /*
  *
- *	Author: Schuyler D. Smith
+ * Author:  Schuyler D. Smith
+ * Function:  fasta_seq_names
+ * Purpose: Inputs fasta file(s) and returns just the read 
+ * IDs without any sequence associated with them.
  *
  */
 
@@ -13,10 +16,8 @@
 int main(int argc, char * argv[])
 {
     int eval = EXIT_SUCCESS;
-    std::string     input_fasta_file;
-
     try{
-        if(!askforhelp(argv))
+        if(!askforhelp(argc, argv, "test this"))
         {
             for(int i=1;i < argc;i++){
                 get_fa_line(argv[i]);

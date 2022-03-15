@@ -1,4 +1,12 @@
-//' @author Schuyler D. Smith
+/*
+ *
+ * Author:  Schuyler D. Smith
+ * Function:  fastq_derep
+ * Purpose: Counts and dereplicates identical reads, 
+ * appending the read count to the end of the read ID
+ * of the representative sequence.
+ * 
+ */
 
 #include <string>
 #include <cstring>

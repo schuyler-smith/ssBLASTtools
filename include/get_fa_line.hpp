@@ -1,3 +1,12 @@
+/*
+ *
+ * Author:  Schuyler D. Smith
+ * Function:  get_fa_line
+ * Purpose:  Function to iterate through fasta files identifying 
+ * the lines as either read ID or read sequence.
+ *
+ */
+
 #ifndef GET_FA_LINE
 #define GET_FA_LINE
 
