@@ -7,7 +7,8 @@ LDFLAGS= -I ./include
 HDRS:= $(wildcard include/*) 
 SRCS:=
 
-all:	bin bin/fastq_derep \
+all:	bin \
+		bin/fastq_derep \
 		bin/fasta_seq_names \
 		bin/fasta_seq_reads \
 		bin/fasta_merge
