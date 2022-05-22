@@ -11,7 +11,8 @@ all:	bin \
 		bin/fastq_derep \
 		bin/fasta_seq_names \
 		bin/fasta_seq_reads \
-		bin/fasta_merge
+		bin/fasta_merge \
+		bin/aligned_reads
 
 bin:
 	$(shell mkdir -p $@)
@@ -27,6 +28,9 @@ bin/fasta_seq_reads: src/fasta_seq_reads.cpp
 
 bin/fasta_merge: src/fasta_merge.cpp
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $? $(HDRS) $(LDLIBS)
+
+# bin/aligned_reads: src/aligned_reads.cpp
+# 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $? $(HDRS) $(LDLIBS)
 
 
 # clean:
